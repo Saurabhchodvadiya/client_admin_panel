@@ -1,0 +1,226 @@
+{% extends "pages/home.html" %}
+{% load static %}
+{% block extrahead %}
+{{ form.media}}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'public/table.css' %}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.13.1/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.13.1/datatables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="{% static 'public/job_profile.css' %}">
+
+		
+	  </main>
+	  
+</div>
+
+<div class="box-body" id="white-box" style="padding-left: 30px;box-sizing: border-box;">
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">Manufacturer Part No</label>
+            <input type="text" disabled="True" id="Manufacturer" name="fname"  value= {{find_data.mrfppartno}} placeholder="Manufacturing Part No"><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">Mounting Type</label>
+            <input type="text" disabled="True" value= {{find_data.mounting}} id="Mounting" name="fname" placeholder="Mounting Type"><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">value</label>
+            <input type="text" id="productvalue" name="fname"  placeholder="value" value= {{find_data.value}} ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">HT</label>
+            <input type="text" id="HT" name="fname" placeholder="HT" value= {{find_data.ht}} ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">Dia</label>
+            <input type="text" id="Dia"  name="fname" placeholder="Dia" value= {{find_data.dia}} ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">Spring Dia</label>
+            <input type="text" id="Spring" name="fname"  placeholder="Spring Dia" value= {{find_data.spring_dia}} ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">Material</label>
+            <input type="text" id="Material"  name="fname" placeholder="Material " value= {{find_data.material}} ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">Pitch</label>
+            <input type="text" id="Pitch" name="fname" placeholder="Pitch" value= {{find_data.pitch}} ><br><br>
+        </div>
+    </div>
+   
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+			{% if  find_data.ref == None %}
+            <button  style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px; " id="Refrence"  >Reference</button>
+			{% elif  find_data.ref == "" %}
+			<button  style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px; " id="Refrence"  >Reference</button>
+			{% else %}
+			<button  style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px; " id="Refrence" onclick="window.open('{{find_data.ref}}','_blank')" >Reference</button>
+			{% endif %}
+		</div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+			
+			{% if "media" in find_data.datasheet %}
+            <button style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px;"id="Datasheet" onclick="window.open('{{find_data.datasheet}}','_blank')" >Datasheet</button>
+			{% elif  find_data.datasheet == None %}
+			<button style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px;"id="Datasheet"  >Datasheet</button>
+			{% elif  find_data.datasheet == "" %}
+			<button style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px;"id="Datasheet"  >Datasheet</button>
+			{% else %}
+			<button type="button" style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px;" onclick="window.open('{{find_data.datasheet}}','_blank')"
+				target="_blank">Datasheet</button>
+			{% endif %}
+        </div>
+    </div>
+        <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+    <div style="white-space: pre-line;">
+        <button onclick="edit_other()">Edit</button>
+    </div>
+    <br></br>
+    <br></br>
+
+
+    <object data="{{find_data.datasheet}}" 
+            width="1100" 
+            height="1000"> 
+    </object>
+</div>
+<style>
+    div#white-box {
+        width: auto;
+        background-color: #fff;
+        color: #000;
+        padding: 8px 12px;
+        word-wrap: break-word;
+    }
+    input,input#fname {
+        font-family: inherit;
+        display: block !important;
+        height: 25px;
+        padding: 6px 6px !important;
+        font-size: 11px !important;
+        line-height: 1.42857143 !important;
+        color: #223D4F !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        border: 1px solid #D7DCDE !important;
+        border-radius: 0px !important;
+        box-shadow: none !important;
+        font-size: inherit;
+        line-height: inherit;
+    }
+    label {
+        font-size: 11px;
+        color: black;
+    }
+    .form-group {
+        margin-top: 6px !important;
+        margin-bottom: -30px !important;
+    }
+    button {
+        appearance: none;
+        background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+        border: 2px solid #1A1A1A;
+        border-radius: 15px;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 12px;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0;
+        min-height: 35px;
+        min-width: 70px;
+        outline: none;
+        /* padding: 16px 24px; */
+        text-align: center;
+        text-decoration: none;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        /* width: 100%; */
+        will-change: transform;
+    }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
+
+
+
+
+
+
+</script>
+<script>
+
+
+function edit_other() {
+	$.ajax({
+			url: "{% url 'update_other' %}",
+			data: {
+				'id':" {{request.GET.id}}",
+			'ht': $('#HT').val(),
+            'dia': $('#Dia').val(),
+            'spring_dia': $('#Spring').val(),
+            'material': $('#Material').val(),
+            'pitch': $('#Pitch').val(),
+			'value': $('#productvalue').val(),
+		
+			},
+			dataType: 'json',
+			success: function (data) {
+			console.log(data)
+			if (data.added!=true) {
+				
+				//$("#id_alert").append(make_alert("info","ShareClass already exists."));
+				window.alert("Sorry, Something went wrong.");
+			}
+			else{
+				
+				// $("#id_alert").append(make_alert("success","ShareClass added successfully.!"));
+				window.alert("Other Data updated successfully.!");
+				history.back();
+			}
+			},
+			error: function (jqXHR, status, err) {
+				
+				// $("#id_alert").append(make_alert("danger","Sorry, Something went wrong."));
+				window.alert("Sorry, Something went wrong.");
+			},
+		});			
+		}
+		
+	
+
+	
+
+</script>
+{% endblock %}
+
+
