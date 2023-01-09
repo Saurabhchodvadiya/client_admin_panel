@@ -251,7 +251,8 @@ function edit_through() {
 				
 				// $("#id_alert").append(make_alert("success","ShareClass added successfully.!"));
 				window.alert("Through Data updated successfully.!");
-				history.back();
+				window.location=document.referrer;
+                
 			}
 			},
 			error: function (jqXHR, status, err) {

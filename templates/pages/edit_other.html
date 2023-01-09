@@ -205,7 +205,8 @@ function edit_other() {
 				
 				// $("#id_alert").append(make_alert("success","ShareClass added successfully.!"));
 				window.alert("Other Data updated successfully.!");
-				history.back();
+				window.location=document.referrer;
+                
 			}
 			},
 			error: function (jqXHR, status, err) {
