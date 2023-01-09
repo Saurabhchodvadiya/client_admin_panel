@@ -206,7 +206,7 @@ function edit_surface() {
 				
 				// $("#id_alert").append(make_alert("success","ShareClass added successfully.!"));
 				window.alert("Surface Data updated successfully.!");
-				history.back();
+				window.location=document.referrer;
 			}
 			},
 			error: function (jqXHR, status, err) {

@@ -18,17 +18,17 @@
 	<thead>
 		<tr>
 
-			<th class="Manufacturer">Manufacturer Part No</th>
-			<th class="mounting">Mounting Type</th>
-			<th class="value">value</th>
-			<th class="ht">ht</th>
-			<th class="dia">dia</th>
-			<th class="spring_dia">spring_dia</th>
-			<th class="material">material</th>
-			<th class="pitch">pitch</th>
-			<th class="Datasheet">Datasheet</th>
-			<th class="Reference">Reference</th>
-			<th class="Reference">Edit</th>
+			<th class="l xl dot">Manufacturer Part No</th>
+			<th class="l xl dot">Mounting Type</th>
+			<th class="l xl dot">Value</th>
+			<th class="l xl dot">HT</th>
+			<th class="l xl dot">Dia</th>
+			<th class="l xl dot">Spring Diameter</th>
+			<th class="l xl dot">Material</th>
+			<th class="l xl dot">Pitch</th>
+			<th class="l xl dot">Datasheet</th>
+			<th class="l xl dot">Reference</th>
+			<th class="l xl dot">Edit</th>
 
 
 		</tr>
@@ -36,41 +36,41 @@
 	<tbody>
 		{% for list in page_obj %}
 		<tr>
-			<th class="Manufacturer">{{list.mrfppartno}}</th>
-			<th class="mounting">{{list.mounting}}</th>
-			<th class="value">{{list.value}}</th>
-			<th class="ht">{{list.ht}}</th>
-			<th class="dia">{{list.dia}}</th>
-			<th class="spring_dia">{{list.spring_dia}}</th>
-			<th class="material">{{list.material}}</th>
-			<th class="pitch">{{list.pitch}}</th>
-			<!-- <th class="tbhead vsm c">{{list.Datasheet}}</th> -->
+			<td class="Manufacturer">{{list.mrfppartno}}</td>
+			<td class="mounting">{{list.mounting}}</td>
+			<td class="value">{{list.value}}</td>
+			<td class="ht">{{list.ht}}</td>
+			<td class="dia">{{list.dia}}</td>
+			<td class="spring_dia">{{list.spring_dia}}</td>
+			<td class="material">{{list.material}}</td>
+			<td class="pitch">{{list.pitch}}</td>
+			<!-- <td class="tbhead vsm c">{{list.Datasheet}}</td> -->
 			{% if "media" in list.datasheet %}
-			<th class="Datasheet"><button type="button" onclick="window.open('{{list.datasheet}}','_blank')"
-					target="_blank">Datasheet</button></th>
+			<td class="Datasheet"><button type="button" onclick="window.open('{{list.datasheet}}','_blank')"
+					target="_blank">Datasheet</button></td>
 			{% elif list.datasheet == None %}
-			<th class="Datasheet"><button type="button"
-				target="_blank">Datasheet</button></th>
+			<td class="Datasheet"><button type="button"
+				target="_blank">Datasheet</button></td>
 			{% elif list.datasheet == "" %}
-			<th class="Datasheet"><button type="button"
-				target="_blank">Datasheet</button></th>
+			<td class="Datasheet"><button type="button"
+				target="_blank">Datasheet</button></td>
 			{% else %}
-			<th class="Datasheet"><button type="button" onclick="window.open('{{list.datasheet}}','_blank')"
-				target="_blank">Datasheet</button></th>
+			<td class="Datasheet"><button type="button" onclick="window.open('{{list.datasheet}}','_blank')"
+				target="_blank">Datasheet</button></td>
 			{% endif %}
-			<!-- <th class="edit">{{list.ref}}</th> -->
+			<!-- <td class="edit">{{list.ref}}</td> -->
 			{% if list.ref == None %}
-			<th class="Reference"><button type="button" 
-				target="_blank">Reference</button></th>
+			<td class="Reference"><button type="button" 
+				target="_blank">Reference</button></td>
 			{% elif list.ref == "" %}
-			<th class="Reference"><button type="button" 
-				target="_blank">Reference</button></th>
+			<td class="Reference"><button type="button" 
+				target="_blank">Reference</button></td>
 			{% else %}
-			<th class="Reference"><button type="button" onclick="window.open('{{list.ref}}','_blank')"
-				target="_blank">Reference</button></th>
+			<td class="Reference"><button type="button" onclick="window.open('{{list.ref}}','_blank')"
+				target="_blank">Reference</button></td>
 			{% endif %}
-					<th class="edit"><button type="button" onclick=edit({{list.id}})
-						target="_blank">Edit</button></th>
+					<td class="edit"><button type="button" onclick=edit({{list.id}})
+						target="_blank">Edit</button></td>
 
 
 		</tr>
@@ -99,6 +99,18 @@
 
 
 <style>
+	th{
+		height: 50px;
+		font-size: 12px;
+    font-weight: 500;
+    padding: 3px 5px;
+	}
+	td{
+		color: #26497F;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 5px;
+	}
 	a#coloor {
 		background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
 		color: white;

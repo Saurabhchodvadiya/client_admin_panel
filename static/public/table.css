@@ -110,9 +110,9 @@
 		  display: table-footer-group;
 		}
 	  
-		td {
+		/* td {
 		  border: 1px solid #28333f;
-		}
+		} */
 		td:before {
 		  display: none;
 		}
@@ -123,7 +123,7 @@
 		}
 	  
 		tr:nth-child(2n+2) td {
-		  background-color: #242e39;
+		  background-color:white;
 		}
 	  
 		tfoot th {
