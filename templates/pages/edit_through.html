@@ -88,6 +88,7 @@
 			{% elif  find_data.datasheet == "" %}
 			<button style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px;"id="Datasheet"  >Datasheet</button>
 			{% else %}
+            
 			<button type="button" style="background: darkcyan;color:white; border-radius: 5px; min-width: 100px;" onclick="window.open('{{find_data.datasheet}}','_blank')"
 				target="_blank">Datasheet</button>
 			{% endif %}
@@ -105,10 +106,8 @@
     <br></br>
 
 
-    <object data="{{find_data.datasheet}}" 
-            width="1100" 
-            height="1000"> 
-    </object>
+    <iframe width="1100"  height="1000" src="{{find_data.datasheet}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 </div>
 

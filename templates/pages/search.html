@@ -10,6 +10,7 @@
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="{% static 'public/job_profile.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div style="margin-top: 15px;"> 
 <div class="box-body" id="white-box" style="padding-left: 30px;box-sizing: border-box;">
     <div class="col-sm-3 col-md-3">
@@ -97,28 +98,24 @@
         {% for list in page_obj %}
         
             
-            <td class="Manufacturer">{{list.mrfppartno}}</td>
-            <td class="mounting">{{list.mounting}}</td>
-            <td class="value">{{list.value}}</td>
-            <td class="ht">{{list.ht}}</td>
-            <td class="dia">{{list.dia}}</td>
-            <td class="spring_dia">{{list.spring_dia}}</td>
-            <td class="material">{{list.material}}</td>
-            <td class="pitch">{{list.pitch}}</td>
+        <td class="l xl dot" title="{{list.mrfppartno}}">{{list.mrfppartno}}</td>
+        <td class="l xl dot" title="{{list.mounting}}">{{list.mounting}}</td>
+        <td class="l xl dot" title="{{list.value}}">{{list.value}}</td>
+        <td class="l xl dot" title="{{list.ht}}">{{list.ht}}</td>
+        <td class="l xl dot" title="{{list.dia}}">{{list.dia}}</td>
+        <td class="l xl dot" title="{{list.spring_dia}}">{{list.spring_dia}}</td>
+        <td class="l xl dot" title="{{list.material}}">{{list.material}}</td>
+        <td class="l xl dot" title="{{list.pitch}}">{{list.pitch}}</td>
             
             <!-- <td class="tbhead vsm c">{{list.Datasheet}}</td> -->
             {% if "media" in list.datasheet %}
-			<td class="Datasheet"><button type="button" onclick="window.open('{{list.datasheet}}','_blank')"
-					target="_blank">Datasheet</button></td>
+			<td class="Datasheet"><a href="{{list.datasheet}}" target="_blank"><i class="fa fa-eye" style=" font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i></a></td>
 			{% elif list.datasheet == None %}
-			<td class="Datasheet"><button type="button"
-				target="_blank">Datasheet</button></td>
+			<td class="Datasheet"><i class="fa fa-eye" style=" font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i></td>
 			{% elif list.datasheet == "" %}
-			<td class="Datasheet"><button type="button"
-				target="_blank">Datasheet</button></td>
+			<td class="Datasheet"><i class="fa fa-eye" style=" font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i></td>
 			{% else %}
-			<td class="Datasheet"><button type="button" onclick="window.open('{{list.datasheet}}','_blank')"
-				target="_blank">Datasheet</button></td>
+			<td class="Datasheet"><a href="{{list.datasheet}}" target="_blank"><i class="fa fa-eye" style=" font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i></a></td>
 			{% endif %}
 			<!-- <td class="edit">{{list.ref}}</td> -->
 			{% if list.ref == None %}

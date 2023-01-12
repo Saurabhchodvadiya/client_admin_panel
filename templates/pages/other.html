@@ -11,7 +11,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="{% static 'public/job_profile.css' %}">
 <!-- Add  Industry -->
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Get Industry DataTable -->
 <!-- <a id="tabel"> -->
 <table id="example" class="table-hover" style="height:10px;width:100%">
@@ -46,17 +46,13 @@
 			<td class="l xl dot" title="{{list.pitch}}">{{list.pitch}}</td>
 			<!-- <td class="tbhead vsm c">{{list.Datasheet}}</td> -->
 			{% if "media" in list.datasheet %}
-			<td class="l xl dot"><button type="button" onclick="window.open('{{list.datasheet}}','_blank')"
-					target="_blank">Datasheet</button></td>
+			<td class="Datasheet"><a href="{{list.datasheet}}" target="_blank"><i class="fa fa-eye" style=" font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i></a></td>
 			{% elif list.datasheet == None %}
-			<td class="l xl dot"><button type="button"
-				target="_blank">Datasheet</button></td>
+			<td class="Datasheet"><i class="fa fa-eye" style=" font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i></td>
 			{% elif list.datasheet == "" %}
-			<td class="l xl dot"><button type="button"
-				target="_blank">Datasheet</button></td>
+			<td class="Datasheet"><i class="fa fa-eye" style=" font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i></td>
 			{% else %}
-			<td class="l xl dot"><button type="button" onclick="window.open('{{list.datasheet}}','_blank')"
-				target="_blank">Datasheet</button></td>
+			<td class="Datasheet"><a href="{{list.datasheet}}" target="_blank"><i class="fa fa-eye" style=" font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i></a></td>
 			{% endif %}
 			<!-- <td class="edit">{{list.ref}}</td> -->
 			{% if list.ref == None %}
