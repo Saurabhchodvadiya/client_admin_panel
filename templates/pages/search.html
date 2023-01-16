@@ -266,7 +266,9 @@
 <div id="maintb"></div>
 <script>
 
-
+    document.getElementById('menu').innerHTML = '<span class="dashboard">Find Record</span>'
+	document.getElementById('5').className = "active"
+	
     var drop_down_val=""
     function fund_search_list() {
         var url = "{% url 'find_record' %}";
